@@ -12,4 +12,14 @@
 2. `Component`라는 클래스를 만들어서 각 컴포넌트를 생성할때마다 상속하게 한다. 그러면 컴포넌트의 로직을 어느정도 강제할 수 있기때문에 관리할떄 용이함
 
 3. `Element.closest`
+
    > 주어진 css 선택자와 일치하는 요소를 찾을때까지, 자기 자신을 포함해서 위쪽(부모방향)으로 문서 트리를 순회한다.
+
+4. 생각보다 `dataset`을 많이 활용하넹..!
+   예시
+
+```js
+target.closest("[data-seq]").dataset.seq;
+...
+this.$target.querySelector('[data-component="item-appender"]');
+```

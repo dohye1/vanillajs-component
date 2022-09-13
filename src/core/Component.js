@@ -1,19 +1,23 @@
 export default class Component {
   $target;
   $state;
-  constructor($target) {
+  $props;
+  constructor($target, $props) {
     this.$target = $target;
+    this.$props = $props;
     this.setup();
     this.setEvent();
     this.render();
   }
 
   setup() {}
+  mounted() {}
   template() {
     return "";
   }
   render() {
     this.$target.innerHTML = this.template();
+    this.mounted();
   }
   setEvent() {}
   setState(newState) {
