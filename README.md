@@ -23,3 +23,33 @@ target.closest("[data-seq]").dataset.seq;
 ...
 this.$target.querySelector('[data-component="item-appender"]');
 ```
+
+# store 구현해보기
+
+- `observer pattern`을 사용해서 store를 구현해봄
+
+> `observable`과 `observe`라는 관계
+>
+> - `observable`은 `observe`에서 사용된다.
+> - `observable`에 변화가 생기면, `observe`에 등록된 함수가 실행된다.
+
+- `Object.defineProperty(object, prop, descriptor)`
+  > 객체에 직접 새로운 속성을 정의하거나, 이미 존재하는 속성을 수정한 후, 그 객체를 반환한다.
+  - `object` : 속성을 정의할 객체
+  - `prop` : 새로 정의하거나 수정하려는 속성의 이름 또는 Symbol
+  - `descriptor` : 새로 정의하거나 수정하려는 속성을 기술하는 객체
+
+```js
+let a = 10;
+const state = {};
+Object.defineProperty(state, "a", {
+  get() {
+    console.log(`현재 a의 값은 ${a}입니다.`);
+    return a;
+  },
+  set(value) {
+    a = value;
+    console.log(`변경된 a의 값은 ${a}입니다.`);
+  },
+});
+```
